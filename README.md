@@ -1,4 +1,6 @@
-# Regular Expression Template Tag in TypeScript
+# rx
+
+> A regular expression template tag written in TypeScript
 
 [![Test status on Travis](https://badgen.net/travis/loilo/rx?label=Linux&icon=travis)](https://travis-ci.org/loilo/rx)
 [![Test status on AppVeyor](https://badgen.net/appveyor/ci/loilo/rx?label=Windows&icon=appveyor)](https://ci.appveyor.com/project/loilo/rx)
