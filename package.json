@@ -1,0 +1,56 @@
+{
+  "name": "@loilo/rx",
+  "version": "0.0.0",
+  "private": false,
+  "description": "A template tag for creating regular expressions",
+  "main": "dist/rx.js",
+  "umd:main": "dist/rx.umd.js",
+  "unpkg": "dist/rx.umd.js",
+  "jsdelivr": "dist/rx.umd.js",
+  "module": "dist/rx.mjs",
+  "source": "rx.ts",
+  "scripts": {
+    "build": "microbundle",
+    "pretest": "npm run build",
+    "test": "eslint rx.ts && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loilo/rx.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "typescript",
+    "rx",
+    "escape",
+    "template",
+    "tag",
+    "tagged",
+    "literal"
+  ],
+  "author": "Florian Reuschel <florian@loilo.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loilo/rx/issues"
+  },
+  "homepage": "https://github.com/loilo/rx#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-unicorn": "^12.1.0",
+    "jest": "^24.9.0",
+    "microbundle": "^0.11.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.4"
+  }
+}
