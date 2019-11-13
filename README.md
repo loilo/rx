@@ -98,8 +98,10 @@ Alternatively, we could have wrapped the control characters in an `rx.raw()` cal
 
 ```js
 function naiveNumberMatcher(allowFloat) {
-  // rx.raw also works as a template tag: rx.raw`(\\.[0-9]+)?`
   return rx`^-?[0-9]+${allowFloat ? rx.raw('(\\.[0-9]+)?') : ''}$`
+
+  // rx.raw also works as a template tag — note that you don't even have to double-escape the "." wildcard:
+  return rx`^-?[0-9]+${allowFloat ? rx.raw`(\.[0-9]+)?')` : ''}$`
 }
 ```
 

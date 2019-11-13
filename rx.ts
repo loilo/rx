@@ -97,11 +97,11 @@ function createRxLiteral(...args: any[]) {
     const strings = (args[0] as unknown) as TemplateStringsArray
     const values = args.slice(1)
     return new RxLiteral(
-      strings
+      strings.raw
         .slice(1)
         .reduce(
           (carry, string, index) => carry.concat(values[index], string),
-          strings[0]
+          strings.raw[0]
         )
     )
   } else {

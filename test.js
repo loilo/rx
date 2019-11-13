@@ -23,6 +23,10 @@ it('should not escape embedded rx literals', () => {
   expect(rx`r${rx.raw`.`}x`).toEqual(/r.x/)
 })
 
+it('should use raw strings to create rx literals via rx.raw', () => {
+  expect(rx`r${rx.raw`\.`}x`).toEqual(/r\.x/)
+})
+
 it('should join arrays with pipes', () => {
   expect(rx`${['r', '.', 'x']}`).toEqual(/r|\.|x/)
 })
