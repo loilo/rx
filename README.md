@@ -121,7 +121,7 @@ If an array is passed as a placeholder, its entries will be escaped and joined b
 
 ```js
 function oneOf(...strings) {
-  return rx('i')`^${strings}$`
+  return rx.i`^${strings}$`
 }
 
 const pattern = oneOf('a', 'b') // pattern = /^a|b$/i
@@ -134,7 +134,7 @@ Note that arrays may also contain regular expressions or `rx.raw` strings which 
 
 ```js
 function oneOfTheseOrInteger(...strings) {
-  return rx('i')`^(${[...strings, /[0-9]+/]})$`
+  return rx.i`^(${[...strings, /[0-9]+/]})$`
 }
 
 const pattern = oneOfTheseOrInteger('a', 'b') // pattern = /^(a|b|[0-9]+)$/i
