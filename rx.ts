@@ -19,10 +19,10 @@ interface TemplateTag<T = string> {
  * A regular expression literal
  */
 class RxLiteral {
-  public constructor(private value: string) {}
+  public constructor(private source: string) {}
 
   public toString() {
-    return this.value
+    return this.source
   }
 }
 
@@ -110,4 +110,18 @@ function createRxLiteral(...args: any[]) {
 }
 rx.raw = createRxLiteral
 
-export default rx
+let exportedRx = rx
+
+if (typeof Proxy === 'function') {
+  exportedRx = new Proxy(rx, {
+    get(target, property) {
+      if (property in target) {
+        return target[property as keyof typeof target]
+      } else {
+        return target(String(property))
+      }
+    }
+  })
+}
+
+export default exportedRx

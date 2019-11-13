@@ -24,7 +24,7 @@ if (disallowedWindowsFilenameChars.test(someFilename)) {
 
 This package exposes a nice `rx` template tag. It's
 
-- **tiny** — 400 bytes minified & gzipped, no dependencies
+- **tiny** — less than 450 bytes minified & gzipped, no dependencies
 - **typed** — written in TypeScript, so your IDE can provide type hints 🎉
 - **fun** — to the extent that regular expressions can be fun
 
@@ -48,17 +48,21 @@ Or use in the browser via [unpkg](https://unpkg.com) (using the global `rx` vari
 
 ### Flags
 
-To use flags in our regular expression, we can pass them to the `rx()` function and use the result as a template:
+We can add flags to our regular expressions like this:
 
 ```js
 function matchCaseInsensitive(string) {
-  return rx('i')`${string}`
+  return rx.i`${string}`
 }
 
-const pattern = matchCaseInsensitive('foo')
+const pattern = matchCaseInsensitive('foo') // pattern = /foo/i
 pattern.test('foo') // true
 pattern.test('fOO') // true
 ```
+
+> **Note:** This way of adding flags will only work in modern environments (Node.js version 6 and up, evergreen browsers). If you need to support Internet Explorer etc., use `rx('i')` instead of `rx.i`.
+>
+> This is because an unpolyfillable technique called [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) is used for the default way of adding flags.
 
 ### Raw Strings
 

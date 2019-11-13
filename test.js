@@ -14,6 +14,10 @@ it('should be able to use flags', () => {
   expect(rx('i')`foo`).toEqual(/foo/i)
 })
 
+it('should be able to use flags via proxied properties', () => {
+  expect(rx.iu`foo`).toEqual(rx('iu')`foo`)
+})
+
 it('should not escape embedded regular expressions', () => {
   expect(rx`r${/./}x`).toEqual(/r.x/)
 })
