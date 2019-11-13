@@ -8,7 +8,11 @@
 
 ## Motivation
 
-After having used [regular expression escape functions](https://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript) for years, it just crossed my mind that this might be way easier to achieve with a tagged template literal:
+Regular expressions are a tool needed fairly often in the web world — mostly due to JavaScript's lackluster ability to do string matching/searching/replacing.
+
+However, writing regular expressions gets messy very quickly as soon as any third party input is involved. User-provided strings have to be escaped and the convenient regex literals give way to a way more unwieldy [`RegExp`] constructor.
+
+After struggling with this for years, it crossed my mind ([and the mind of many others](#credit)) that this might be solved pretty comfortably with a tagged template literal:
 
 ```ts
 import rx from '@loilo/rx'
