@@ -25,7 +25,7 @@ if (disallowedWindowsFilenameChars.test(someFilename)) {
 This package exposes a nice `rx` template tag. It's
 
 - **tiny** — less than 450 bytes minified & gzipped, no dependencies
-- **typed** — written in TypeScript, so your IDE can provide type hints 🎉
+- **typed** — written in TypeScript, so our IDE can provide type hints 🎉
 - **fun** — to the extent that regular expressions can be fun
 
 ## Installation
@@ -60,7 +60,7 @@ pattern.test('foo') // true
 pattern.test('fOO') // true
 ```
 
-> **Note:** This way of adding flags will only work in modern environments (Node.js version 6 and up, evergreen browsers). If you need to support Internet Explorer etc., use `rx('i')` instead of `rx.i`.
+> **Note:** This way of adding flags will only work in modern environments (Node.js version 6 and up, evergreen browsers). If we need to support Internet Explorer etc., we may use `rx('i')` instead of `rx.i`.
 >
 > This is because an unpolyfillable technique called [Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) is used for the default way of adding flags.
 
@@ -104,7 +104,7 @@ Alternatively, we could have wrapped the control characters in an `rx.raw()` cal
 function naiveNumberMatcher(allowFloat) {
   return rx`^-?[0-9]+${allowFloat ? rx.raw('(\\.[0-9]+)?') : ''}$`
 
-  // rx.raw also works as a template tag — note that you don't even have to double-escape the "." wildcard:
+  // rx.raw also works as a template tag — note that we don't even have to double-escape the "." wildcard:
   return rx`^-?[0-9]+${allowFloat ? rx.raw`(\.[0-9]+)?')` : ''}$`
 }
 ```
