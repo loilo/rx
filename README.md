@@ -157,6 +157,6 @@ oneOrMultipleOf('cat', 'dog') // /^cat|cats|dog|dogs$/i
 
 ## Credit
 
-In the world of programming, you're basically never the first person to come up with a clever trick. I [googled](https://www.google.com/search?q=regex+template+tag) my idea and it turned out that Lea Verou published [the very same thing](http://lea.verou.me/2018/06/easy-dynamic-regular-expressions-with-tagged-template-literals-and-proxies/) in 2018 — and this package is loosely based on her implementation.
+In the world of programming, you're basically never the first person to come up with a clever trick. I [googled](https://www.google.com/search?q=regex+template+tag) my idea and it turned out that Lea Verou published [the very same thing](http://lea.verou.me/2018/06/easy-dynamic-regular-expressions-with-tagged-template-literals-and-proxies/) in 2018, and Dr. Axel Rauschmeyer [created a similar utility](https://2ality.com/2017/07/re-template-tag.html) in 2017.
 
-Key differences are that I added type hints (therefore this package is written in TypeScript) and the aforementioned capability to merge in arrays and raw strings.
+Key differences to those implementations are that I added type hints (therefore this package is written in TypeScript) and the aforementioned capability to merge in arrays and raw strings.
