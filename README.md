@@ -10,7 +10,7 @@
 
 Regular expressions are a tool needed fairly often in the web world — mostly due to JavaScript's lackluster ability to do string matching/searching/replacing.
 
-However, writing regular expressions gets messy very quickly as soon as any third party input is involved. User-provided strings have to be escaped and the convenient regex literals give way to a way more unwieldy [`RegExp`] constructor.
+However, writing regular expressions gets messy very quickly as soon as any third party input is involved. User-provided strings have to be escaped and the convenient regex literals give way to that unwieldy [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) constructor.
 
 After struggling with this for years, it crossed my mind ([and the mind of many others](#credit)) that this might be solved pretty comfortably with a tagged template literal:
 
