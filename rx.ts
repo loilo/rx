@@ -110,7 +110,10 @@ function createRxLiteral(...args: any[]) {
 }
 rx.raw = createRxLiteral
 
-let exportedRx = rx
+type FullRxType = typeof rx & { [flags: string]: TemplateTag<RegExp> }
+
+// Template literal type of flags
+let exportedRx: FullRxType = rx as any
 
 if (typeof Proxy === 'function') {
   exportedRx = new Proxy(rx, {
@@ -121,7 +124,7 @@ if (typeof Proxy === 'function') {
         return target(String(property))
       }
     }
-  })
+  }) as FullRxType
 }
 
 export default exportedRx
