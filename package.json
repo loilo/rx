@@ -3,16 +3,22 @@
   "version": "2.1.3",
   "private": false,
   "description": "A template tag for creating regular expressions",
-  "main": "dist/rx.js",
-  "umd:main": "dist/rx.umd.js",
-  "unpkg": "dist/rx.umd.js",
-  "jsdelivr": "dist/rx.umd.js",
-  "module": "dist/rx.mjs",
+  "type": "module",
+  "unpkg": "dist/rx.js",
+  "jsdelivr": "dist/rx.js",
+  "main": "./dist/rx.js",
+  "module": "./dist/rx.js",
+  "exports": {
+    "import": "./dist/rx.js"
+  },
   "source": "rx.ts",
+  "sideEffects": false,
   "scripts": {
-    "build": "microbundle",
+    "build": "vite build && tsc",
     "pretest": "npm run build",
-    "test": "eslint rx.ts && jest"
+    "test:lint": "eslint rx.ts",
+    "test:unit": "vitest run",
+    "test": "run-s test:lint test:unit"
   },
   "repository": {
     "type": "git",
@@ -41,16 +47,16 @@
   },
   "homepage": "https://github.com/loilo/rx#readme",
   "devDependencies": {
-    "@types/jest": "^24.0.19",
-    "@typescript-eslint/eslint-plugin": "^2.5.0",
-    "@typescript-eslint/parser": "^2.5.0",
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-unicorn": "^12.1.0",
-    "jest": "^24.9.0",
-    "microbundle": "^0.11.0",
-    "prettier": "^1.18.2",
-    "typescript": "^3.6.4"
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vitest": "^1.1.3"
   }
 }

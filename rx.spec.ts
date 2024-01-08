@@ -1,4 +1,6 @@
-const rx = require('./dist/rx')
+import { it, expect } from 'vitest'
+
+import rx from './rx'
 
 it('should create a basic regex', () => {
   const regex = rx`abc`

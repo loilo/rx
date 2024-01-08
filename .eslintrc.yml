@@ -3,9 +3,8 @@ plugins:
   - '@typescript-eslint'
   - unicorn
 extends:
-  - plugin:@typescript-eslint/recommended
   - eslint:recommended
-  - prettier/@typescript-eslint
+  - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
   - plugin:unicorn/recommended
 env:
@@ -18,11 +17,13 @@ rules:
   '@typescript-eslint/explicit-function-return-type': off
   '@typescript-eslint/no-non-null-assertion': off
   '@typescript-eslint/no-var-requires': off
+  unicorn/prefer-ternary: off
+  unicorn/no-array-reduce: off
   unicorn/filename-case:
     - error
     - cases:
         kebabCase: true
   unicorn/prevent-abbreviations:
     - error
-    - whitelist:
+    - allowList:
         args: true

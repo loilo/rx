@@ -5,7 +5,7 @@
  * new RegExp(sanitize(anyString))
  */
 function sanitizeRegex(value: string) {
-  return value.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')
+  return value.replaceAll(/[$()*+./?[\\\]^{|}-]/g, '\\$&')
 }
 
 /**
@@ -47,7 +47,9 @@ function rx(...args: any[]) {
     } else if (placeholder instanceof RxLiteral) {
       return String(placeholder)
     } else if (Array.isArray(placeholder)) {
-      return placeholder.map(handlePlaceholder).join('|')
+      return placeholder
+        .map(singlePlaceholder => handlePlaceholder(singlePlaceholder))
+        .join('|')
     } else {
       return sanitizeRegex(placeholder)
     }
@@ -60,7 +62,7 @@ function rx(...args: any[]) {
   ) {
     return new RegExp(
       strings.slice(1).reduce((carry, string, index) => {
-        return carry.concat(handlePlaceholder(values[index]), string)
+        return `${carry}${handlePlaceholder(values[index])}${string}`
       }, strings[0]),
       flags
     )
@@ -94,13 +96,13 @@ function createRxLiteral(
 ): RxLiteral
 function createRxLiteral(...args: any[]) {
   if (Array.isArray(args[0])) {
-    const strings = (args[0] as unknown) as TemplateStringsArray
+    const strings = args[0] as unknown as TemplateStringsArray
     const values = args.slice(1)
     return new RxLiteral(
       strings.raw
         .slice(1)
         .reduce(
-          (carry, string, index) => carry.concat(values[index], string),
+          (carry, string, index) => `${carry}${values[index]}${string}`,
           strings.raw[0]
         )
     )

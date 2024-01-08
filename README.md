@@ -5,6 +5,8 @@
 [![Tests](https://badgen.net/github/checks/loilo/rx/master)](https://github.com/loilo/rx/actions)
 [![Version on npm](https://badgen.net/npm/v/@loilo/rx)](https://www.npmjs.com/package/@loilo/rx)
 
+**IMPORTANT:** This package is ESM-only. [Read more.](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
+
 ## Motivation
 
 Regular expressions are a tool needed fairly often in the web world — mostly due to JavaScript's lackluster ability to do string matching/searching/replacing.
